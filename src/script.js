@@ -11,7 +11,6 @@ const autorun = () => {
 };
 
 const renderNavbar = () => {
-    console.log("here");
     const nav = document.createElement("nav");
     nav.classList.add("navbar");
     const navDivContainer = document.createElement("div");
@@ -128,10 +127,8 @@ const renderMovies = (movies) => {
         movieDiv.appendChild(moviePoster);
         movieDiv.appendChild(movieTitle);
         movieDiv.addEventListener("click", () => {
-            console.log("inside rendermovies and movie is", movie);
             movieDetailsPage(movie);
         });
-        console.log("after calling function");
         MAIN_CONTENT.appendChild(movieDiv);
     });
 
@@ -182,9 +179,7 @@ const renderActorPage = (actorList) => {
         actorDiv.appendChild(actorPoster);
         actorDiv.appendChild(actorName);
         actorDiv.addEventListener("click", () => {
-            // console.log(actor);
             fetchLifeActor(actor.id, actor);
-            // renderActor(bioOfActor);
         });
 
         MAIN_CONTENT.appendChild(actorDiv);
@@ -229,7 +224,6 @@ const renderActor = (bioOfActor, actor) => {
     actorIMG.appendChild(detailContainer);
     actorDetails.appendChild(actorIMG);
 
-    // console.log("Actor is ", actor["known_for"]);
     const relatedMoviesTitle = document.createElement("h1");
     relatedMoviesTitle.classList.add("actor-title");
     relatedMoviesTitle.innerText = "Known For";
@@ -238,7 +232,6 @@ const renderActor = (bioOfActor, actor) => {
 
     relatedMovies.classList.add("similar-movies");
 
-    // console.log(actor["known_for"]);
     actor["known_for"].map((movie) => {
         const movieDiv = document.createElement("div");
         movieDiv.classList.add("movie-card");
